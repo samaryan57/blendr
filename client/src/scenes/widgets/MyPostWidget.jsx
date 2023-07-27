@@ -126,11 +126,12 @@ const MyPostWidget = ({ picturePath }) => {
                 <FlexBetween
                     gap="0.25rem"
                     onClick={() => setIsImage(!isImage)}
+                    sx={{ "&:hover": { cursor: "pointer", color: medium } }}
                 >
-                    <ImageOutlined sx={{ color: mediumMain }}/>
+                    <ImageOutlined sx={{ color: mediumMain }} />
                     <Typography
                         color={mediumMain}
-                        sx={{ "&:hover": { cursor: "pointer", color: medium }}}
+                        
                     >
                         Image
                     </Typography>
