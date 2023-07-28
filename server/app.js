@@ -34,6 +34,7 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 
 const allowedOrigins = [
     "https://blendr-taupe.vercel.app",
+    "https://sociopedia-pi.vercel.app"
 ];
   
 const corsOptions = {
@@ -44,6 +45,18 @@ const corsOptions = {
             callback(new Error("Not allowed by CORS"));
         }
     },
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    allowedHeaders: [
+        "Content-Type",
+        "Authorization",
+        "X-Requested-With",
+        "Accept",
+        "Access-Control-Allow-Origin",
+    ],
+    credentials: true,
+    maxAge: 86400, // 1 day (in seconds)
 };
 
 app.use(cors(corsOptions));
