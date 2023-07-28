@@ -32,34 +32,47 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 
-const allowedOrigins = [
-    "https://blendr-taupe.vercel.app",
-    "https://sociopedia-pi.vercel.app"
-];
+// const allowedOrigins = [
+//     "https://blendr-taupe.vercel.app",
+//     "https://sociopedia-pi.vercel.app"
+// ];
   
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    allowedHeaders: [
-        "Content-Type",
-        "Authorization",
-        "X-Requested-With",
-        "Accept",
-        "Access-Control-Allow-Origin",
-    ],
-    credentials: true,
-    maxAge: 86400, // 1 day (in seconds)
-};
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         if (allowedOrigins.includes(origin) || !origin) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error("Not allowed by CORS"));
+//         }
+//     },
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     preflightContinue: false,
+//     optionsSuccessStatus: 204,
+//     allowedHeaders: [
+//         "Content-Type",
+//         "Authorization",
+//         "X-Requested-With",
+//         "Accept",
+//         "Access-Control-Allow-Origin",
+//     ],
+//     credentials: true,
+//     maxAge: 86400, // 1 day (in seconds)
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors());
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+    );
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(200);
+    }
+    next();
+});
   
 
 /* FILE STORAGE */
