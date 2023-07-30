@@ -63,7 +63,7 @@ const Form = () => {
         formData.append("picturePath", values.picture.name);
 
         const savedUserResponse = await fetch(
-            "https://sociopedia-pi.vercel.app/auth/register",
+            "https://blendr-server-lwvy.onrender.com/auth/register",
             {
                 method: "POST",
                 body: formData,
@@ -80,7 +80,7 @@ const Form = () => {
 
     const login = async (values, onSubmitProps) => {
         const loggedInResponse = await fetch(
-            "https://sociopedia-pi.vercel.app/auth/login",
+            "https://blendr-server-lwvy.onrender.com/auth/login",
             {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
