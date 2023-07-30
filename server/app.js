@@ -55,8 +55,10 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 //     credentials: true,
 //     maxAge: 86400, // 1 day (in seconds)
 // };
-
-app.use(cors());
+const corsOptions = {
+    origin: "https://blendr.onrender.com",
+}
+app.use(cors(corsOptions));
 
 // app.use((req, res, next) => {
 //     res.setHeader("Access-Control-Allow-Origin", "*");
