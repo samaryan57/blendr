@@ -63,7 +63,7 @@ const Form = () => {
         formData.append("picturePath", values.picture.name);
 
         const savedUserResponse = await fetch(
-            "https://blendr-server-lwvy.onrender.com/auth/register",
+            "https://git.heroku.com/blendr-app.git/auth/register",
             {
                 method: "POST",
                 body: formData,
@@ -80,7 +80,7 @@ const Form = () => {
 
     const login = async (values, onSubmitProps) => {
         const loggedInResponse = await fetch(
-            "https://blendr-server-lwvy.onrender.com/auth/login",
+            "https://git.heroku.com/blendr-app.git/auth/login",
             {
                 method: "POST",
                 headers: { "Content-type": "application/json" },

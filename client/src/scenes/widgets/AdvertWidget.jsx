@@ -20,7 +20,7 @@ const AdvertWidget = () => {
                 width="100%"
                 height="auto"
                 alt="ad"
-                src="https://blendr-server-lwvy.onrender.com/assets/info4.jpeg"
+                src="https://git.heroku.com/blendr-app.git/assets/info4.jpeg"
                 style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
             />
             <FlexBetween>

@@ -12,7 +12,7 @@ const FriendListWidget = ({ userId }) => {
     const { friends } = useSelector(state => state.user);
 
     const getFriends = async () => {
-        const response = await fetch(`https://blendr-server-lwvy.onrender.com/users/${userId}/friends`, {
+        const response = await fetch(`https://git.heroku.com/blendr-app.git/users/${userId}/friends`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
         });
