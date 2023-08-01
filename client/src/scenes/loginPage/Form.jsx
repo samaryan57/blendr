@@ -46,7 +46,7 @@ const initialValuesLogin = {
     password: ""
 };
 
-const Form = () => {
+const Form = ({ setPageStyle }) => {
     const [pageType, setPageType] = useState("login");
     const { palette } = useTheme();
     const dispatch = useDispatch();
@@ -63,7 +63,7 @@ const Form = () => {
         formData.append("picturePath", values.picture.name);
 
         const savedUserResponse = await fetch(
-            "https://git.heroku.com/blendr-app.git/auth/register",
+            "http://localhost:3001/auth/register",
             {
                 method: "POST",
                 body: formData,
@@ -80,7 +80,7 @@ const Form = () => {
 
     const login = async (values, onSubmitProps) => {
         const loggedInResponse = await fetch(
-            "https://git.heroku.com/blendr-app.git/auth/login",
+            "http://localhost:3001/auth/login",
             {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
@@ -199,7 +199,7 @@ const Form = () => {
                                             >
                                                 <input {...getInputProps()} />
                                                 {!values.picture ? (
-                                                    <p>Add Picture Here</p>
+                                                    <p>Add a Profile Picture Here</p>
                                                 ) : (
                                                     <FlexBetween>
                                                         <Typography>{values.picture.name}</Typography>
@@ -255,6 +255,7 @@ const Form = () => {
                         <Typography
                             onClick={() => {
                                 setPageType(isLogin ? "register" : "login");
+                                setPageStyle(!isLogin);
                                 resetForm();
                             }}
                             sx={{

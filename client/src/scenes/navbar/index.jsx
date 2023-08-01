@@ -42,7 +42,10 @@ const Navbar = () => {
     const fullName = `${user.firstName} ${user.lastName}`;
 
     return (
-        <FlexBetween padding="1rem 6%" backgroundColor={alt}>
+        <FlexBetween 
+            padding="1rem 6%" 
+            backgroundColor={alt}
+        >
             <FlexBetween gap="1.75rem">
                 <Typography
                     fontWeight="bold"
@@ -56,7 +59,7 @@ const Navbar = () => {
                         },
                     }}
                 >
-                    Sociopedia
+                    Blendr&reg;
                 </Typography>
                 {isNonMobileScreens && (
                     <FlexBetween backgroundColor={neutralLight} borderRadius="9px" gap="3rem" padding="0.1rem 1.5rem">

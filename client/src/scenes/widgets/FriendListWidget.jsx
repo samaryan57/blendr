@@ -12,7 +12,7 @@ const FriendListWidget = ({ userId }) => {
     const { friends } = useSelector(state => state.user);
 
     const getFriends = async () => {
-        const response = await fetch(`https://git.heroku.com/blendr-app.git/users/${userId}/friends`, {
+        const response = await fetch(`http://localhost:3001/users/${userId}/friends`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -35,7 +35,15 @@ const FriendListWidget = ({ userId }) => {
             >
                 Friend List
             </Typography>
-            <Box display="flex" flexDirection="column" gap="1.5rem">
+            <Box 
+                display="flex" 
+                flexDirection="column" 
+                gap="1.5rem"
+                sx={{
+                    maxHeight: "220px",
+                    overflow: "auto"
+                }}
+            >
                 {friends.map((friend, index) => (
                     <Friend 
                         key={`${friend._id}-${index}`}

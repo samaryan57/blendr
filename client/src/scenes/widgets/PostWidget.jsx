@@ -29,13 +29,17 @@ const PostWidget = ({
     const loggedInUserId = useSelector(state => state.user._id);
     const isLiked = Boolean(likes[loggedInUserId]);
     const likeCount = Object.keys(likes).length;
+    const isParentUser = (postUserId === loggedInUserId) ? true : false;
+    // console.log("Creds:");
+    // console.log(postUserId);
+    // console.log(loggedInUserId);
 
     const { palette } = useTheme();
     const main = palette.neutral.main;
     const primary = palette.primary.main;
     
     const patchLike = async () => {
-        const response = await fetch(`https://git.heroku.com/blendr-app.git/posts/${postId}/like`, {
+        const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -55,6 +59,7 @@ const PostWidget = ({
                 name={name}
                 subtitle={location}
                 userPicturePath={userPicturePath}
+                isParentUser={isParentUser}
             />
             <Typography color={main} sx={{ mt: "1rem" }}>
                 {description}
@@ -65,7 +70,7 @@ const PostWidget = ({
                     height="auto"
                     alt="post"
                     style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-                    src={`https://git.heroku.com/blendr-app.git/assets/${picturePath}`}
+                    src={`http://localhost:3001/assets/${picturePath}`}
                 />
             )}
             <FlexBetween mt="0.25rem">

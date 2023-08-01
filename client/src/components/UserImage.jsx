@@ -8,7 +8,7 @@ const UserImage = ({ image, size="60px" }) => {
                 width={size}
                 height={size}
                 alt="user"
-                src={`https://git.heroku.com/blendr-app.git/assets/${image}`}
+                src={`http://localhost:3001/assets/${image}`}
             />
         </Box>
     );
