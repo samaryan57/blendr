@@ -94,6 +94,7 @@ const MyPostWidget = ({ picturePath }) => {
                                     border={`2px dashed ${palette.primary.main}`}
                                     p="1rem"
                                     width="100%"
+                                    mr="0.75rem"
                                     sx={{ "&:hover": { cursor: "pointer" } }}
                                 >
                                     <input {...getInputProps()} />
@@ -109,7 +110,6 @@ const MyPostWidget = ({ picturePath }) => {
                                 {image && (
                                     <IconButton
                                         onClick={() => setImage(null)}
-                                        sx={{ width: "15%" }}
                                     >
                                         <DeleteOutlined />
                                     </IconButton>
@@ -139,17 +139,17 @@ const MyPostWidget = ({ picturePath }) => {
 
                 {isNonMobileScreens ? (
                     <>
-                        <FlexBetween gap="0.25rem">
+                        <FlexBetween gap="0.25rem" sx={{ "&:hover": { cursor: "pointer" }} }>
                             <GifBoxOutlined sx={{ color: mediumMain }}/>
                             <Typography color={mediumMain}>Clip</Typography>
                         </FlexBetween>
 
-                        <FlexBetween gap="0.25rem">
+                        <FlexBetween gap="0.25rem" sx={{ "&:hover": { cursor: "pointer" }} }>
                             <AttachFileOutlined sx={{ color: mediumMain }}/>
                             <Typography color={mediumMain}>Attachment</Typography>
                         </FlexBetween>
 
-                        <FlexBetween gap="0.25rem" mr="0.25rem">
+                        <FlexBetween gap="0.25rem" mr="0.25rem" sx={{ "&:hover": { cursor: "pointer" }} }>
                             <MicOutlined sx={{ color: mediumMain }}/>
                             <Typography color={mediumMain}>Audio</Typography>
                         </FlexBetween>

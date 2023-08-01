@@ -35,7 +35,15 @@ const FriendListWidget = ({ userId }) => {
             >
                 Friend List
             </Typography>
-            <Box display="flex" flexDirection="column" gap="1.5rem">
+            <Box 
+                display="flex" 
+                flexDirection="column" 
+                gap="1.5rem"
+                sx={{
+                    maxHeight: "220px",
+                    overflow: "auto"
+                }}
+            >
                 {friends.map((friend, index) => (
                     <Friend 
                         key={`${friend._id}-${index}`}

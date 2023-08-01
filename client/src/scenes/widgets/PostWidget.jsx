@@ -29,6 +29,10 @@ const PostWidget = ({
     const loggedInUserId = useSelector(state => state.user._id);
     const isLiked = Boolean(likes[loggedInUserId]);
     const likeCount = Object.keys(likes).length;
+    const isParentUser = (postUserId === loggedInUserId) ? true : false;
+    // console.log("Creds:");
+    // console.log(postUserId);
+    // console.log(loggedInUserId);
 
     const { palette } = useTheme();
     const main = palette.neutral.main;
@@ -55,6 +59,7 @@ const PostWidget = ({
                 name={name}
                 subtitle={location}
                 userPicturePath={userPicturePath}
+                isParentUser={isParentUser}
             />
             <Typography color={main} sx={{ mt: "1rem" }}>
                 {description}
